@@ -2,7 +2,7 @@ module Sidekiq
   module Superworker
     class Subjob < ActiveRecord::Base
       attr_accessible :jid, :subjob_id, :superjob_id, :parent_id, :children_ids, :next_id,
-        :subworker_class, :superworker_class, :arg_keys, :arg_values, :status
+        :subworker_class, :superworker_class, :arg_keys, :arg_values, :status  if ActiveRecord::VERSION::MAJOR < 4
 
       serialize :children_ids
       serialize :arg_keys
